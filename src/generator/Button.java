@@ -1,6 +1,7 @@
 package generator;
 
 import java.awt.Color;
+import java.awt.Image;
 
 import javax.swing.JButton;
 
@@ -8,7 +9,7 @@ public class Button {
 	private JButton button;
 	private type type;
 	
-	public enum type { WALL, BOTTOM, WINDOWS, DOOR, STAIRS };
+	public enum type { WALL, BOTTOM, WINDOW, DOOR, STAIRS };
 	
 	private Color black = new Color(0, 0, 0);
 	private Color brown = new Color(139,69,19);
@@ -32,7 +33,7 @@ public class Button {
 		switch(type) {
 		case WALL: this.button.setBackground(black); break;
 		case BOTTOM: this.button.setBackground(white); break;
-		case WINDOWS: this.button.setBackground(cyan); break;
+		case WINDOW: this.button.setBackground(cyan); break;
 		case DOOR: this.button.setBackground(brown); break;
 		case STAIRS: this.button.setBackground(lightBrown); break;
 		default: this.button.setBackground(fail); break;

@@ -7,8 +7,8 @@ import javax.swing.JButton;
 
 public class Button {
 	private JButton button;
-	private type type;
-	
+	static protected type type;
+
 	public enum type { WALL, BOTTOM, WINDOW, DOOR, STAIRS };
 	
 	private Color black = new Color(0, 0, 0);

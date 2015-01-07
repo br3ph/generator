@@ -24,7 +24,7 @@ public class Generator extends JFrame{
         setLocation(400, 100);
         // Programm beim Schliessen des Fensters beenden
         // kann nachher weg, ist aber sinnvoll zum testen
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         getContentPane().setLayout(new BorderLayout(5, 5));
 
@@ -58,10 +58,6 @@ public class Generator extends JFrame{
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-    	Generator gen = new Generator();
-    }
-    
     public void generate() {
     	/**
     	 * Obere Seite

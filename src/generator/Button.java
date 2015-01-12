@@ -5,11 +5,13 @@ import java.awt.Image;
 
 import javax.swing.JButton;
 
+
 public class Button {
 	private JButton button;
-	static protected type type;
+	//static protected type type;
+	private Button_Type type;
 
-	public enum type { WALL, BOTTOM, WINDOW, DOOR, STAIRS };
+	public enum Button_Type { WALL, BOTTOM, WINDOW, DOOR, STAIRS };
 	
 	private Color black = new Color(0, 0, 0);
 	private Color brown = new Color(139,69,19);
@@ -25,7 +27,7 @@ public class Button {
 		this.type = null;
 	}
 	
-	public Button(JButton button, type type) {
+	public Button(JButton button, Button_Type type) {
 		this.button = button;
 		this.type = type;
 
@@ -40,11 +42,11 @@ public class Button {
 		}
 	}
 	
-	public type getType() {
+	public Button_Type getType() {
 		return type;
 	}
 	
-	public void setType(type  type) {
+	public void setType(Button_Type  type) {
 		this.type = type;
 	}
 	

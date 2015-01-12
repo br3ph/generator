@@ -39,9 +39,9 @@ public class Generator extends JFrame{
         // init
         for(int i=0; i<spielfeld.length; i++)
 			for(int j=0; j<spielfeld[0].length; j++)
-				this.spielfeld[i][j] = new Button(new JButton(), Button.type.BOTTOM);
-        
-        
+				this.spielfeld[i][j] = new Button(new JButton(), Button.Button_Type.BOTTOM);
+
+
         generate();
 
         // Buttons auf panel packen
@@ -50,8 +50,8 @@ public class Generator extends JFrame{
         		this.panelButton.add(spielfeld[i][j].getButton());
         	}
         }
-        
-        
+
+
         //Panels auf Frame packen (das panelButton hat ein GridLayout, dass jetzt in den WestBereich des BorderLayouts kommt)
         getContentPane().add(BorderLayout.CENTER, panelButton);
         // sichtbar machen
@@ -64,43 +64,43 @@ public class Generator extends JFrame{
     	 */
     	Random rn = new Random();
 		int number;
-		
+
 		for(int k=0; k<x; k++) {
-			if((k > 0 && spielfeld[0][k-1].getType() == Button.type.WALL) || (k>1 && spielfeld[0][k-2].getType() == Button.type.WALL) || (k>2 && spielfeld[0][k-3].getType() == Button.type.WALL))
+			if((k > 0 && spielfeld[0][k-1].getType() == Button.Button_Type.WALL) || (k>1 && spielfeld[0][k-2].getType() == Button.Button_Type.WALL) || (k>2 && spielfeld[0][k-3].getType() == Button.Button_Type.WALL))
 				continue;
 			number = rn.nextInt(8);
-			if(number < 1 && k>2 && k<x-1) spielfeld[0][k] = new Button(new JButton(), Button.type.WALL);
+			if(number < 1 && k>2 && k<x-1) spielfeld[0][k] = new Button(new JButton(), Button.Button_Type.WALL);
 		}
-		
-		
+
+
 		for(int i=1; i<x; i++) {
 			for(int j=0; j<x; j++) {
-				if(spielfeld[i-1][j].getType() == Button.type.WALL || spielfeld[i-1][j].getType() == Button.type.WINDOW || spielfeld[i-1][j].getType() == Button.type.DOOR) {
+				if(spielfeld[i-1][j].getType() == Button.Button_Type.WALL || spielfeld[i-1][j].getType() == Button.Button_Type.WINDOW || spielfeld[i-1][j].getType() == Button.Button_Type.DOOR) {
 					number = rn.nextInt(20);
 					if(number < 2)
-						spielfeld[i][j] = new Button(new JButton(), Button.type.WINDOW);
+						spielfeld[i][j] = new Button(new JButton(), Button.Button_Type.WINDOW);
 					else if(number < 19)
-						spielfeld[i][j] = new Button(new JButton(), Button.type.WALL);
+						spielfeld[i][j] = new Button(new JButton(), Button.Button_Type.WALL);
 					else
-						spielfeld[i][j] = new Button(new JButton(), Button.type.DOOR);
-					
-					
+						spielfeld[i][j] = new Button(new JButton(), Button.Button_Type.DOOR);
+
+
 				}
 			}
 		}
-		
+
 		for(int i=1; i<x-1; i++) {
 			for(int j=0; j<x-1; j++) {
-				if(spielfeld[i][j].getType() != Button.type.WALL)
+				if(spielfeld[i][j].getType() != Button.Button_Type.WALL)
 					continue;
 				number = rn.nextInt(x);
 				if(number < 1) {
 					for(; j<x; j++) {
-						spielfeld[i][j] = new Button(new JButton(), Button.type.WALL);
+						spielfeld[i][j] = new Button(new JButton(), Button.Button_Type.WALL);
 					}
 				} else if(number <2) {
 					for(; j>=0; j--) {
-						spielfeld[i][j] = new Button(new JButton(), Button.type.WALL);
+						spielfeld[i][j] = new Button(new JButton(), Button.Button_Type.WALL);
 					}
 					i++;
 				}
